@@ -12,7 +12,41 @@
       text-align: center;
     }
     h1 {
-      color: #17a2b8; /* azul turquesa */
+      font-size: 3.5rem;
+      font-weight: bold;
+      background: linear-gradient(135deg, #17a2b8, #20c997, #6f42c1, #17a2b8);
+      background-size: 300% 300%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+      letter-spacing: 2px;
+      margin: 30px 0;
+      animation: shimmer 3s ease-in-out infinite;
+      position: relative;
+    }
+    
+    h1::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(135deg, #17a2b8, #20c997, #6f42c1, #17a2b8);
+      background-size: 300% 300%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      filter: blur(1px);
+      z-index: -1;
+      animation: shimmer 3s ease-in-out infinite reverse;
+    }
+    
+    @keyframes shimmer {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
     }
     .video-container {
       margin: 20px auto;
