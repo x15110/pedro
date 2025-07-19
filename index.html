@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>El Cine Privado de Pedro</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #0e0e0e;
+      color: #ffffff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    header {
+      padding: 20px;
+      font-size: 2.2em;
+      color: #f1c40f;
+      text-shadow: 2px 2px 8px #000;
+    }
+    .video-card {
+      background-color: #1e1e1e;
+      border-radius: 16px;
+      margin: 30px 20px;
+      padding: 20px;
+      width: 90%;
+      max-width: 850px;
+      box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+    }
+    iframe {
+      width: 100%;
+      height: 480px;
+      border: none;
+      border-radius: 12px;
+    }
+    h2 {
+      margin-top: 0;
+      color: #f39c12;
+      font-size: 1.5em;
+    }
+    .poster {
+      width: 100%;
+      border-radius: 12px;
+      margin-bottom: 15px;
+    }
+    audio {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <audio autoplay loop>
+    <source src="https://www.bensound.com/bensound-music/bensound-slowmotion.mp3" type="audio/mp3">
+    Tu navegador no soporta audio HTML5.
+  </audio>
+
+  <header>
+    🎬 El Cine Privado de Pedro
+  </header>
+
+  <div class="video-card">
+    <h2>🎞 La Liga de la Justicia</h2>
+    <img class="poster" src="https://upload.wikimedia.org/wikipedia/en/3/31/Justice_League_film_poster.jpg" alt="La Liga de la Justicia">
+    <iframe src="https://drive.google.com/file/d/1rHh7Xf0gR91IazY9NqGQO8QxT0Pj7POA/preview" allow="autoplay"></iframe>
+  </div>
+
+  <div class="video-card">
+    <h2>🧙 Capítulo 1: El Señor de los Anillos</h2>
+    <img class="poster" src="https://upload.wikimedia.org/wikipedia/en/8/87/Ringstrilogyposter.jpg" alt="El Señor de los Anillos">
+    <iframe src="https://drive.google.com/file/d/1xk8ZuH1uWEtUv5Ro6W2ufPfRyPQgJb9m/preview" allow="autoplay"></iframe>
+  </div>
+
+</body>
+</html>
