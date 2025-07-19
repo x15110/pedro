@@ -56,32 +56,77 @@
       width: 100%;
       height: auto;
       margin-bottom: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    }
+    .error-message {
+      background-color: #f8d7da;
+      color: #721c24;
+      padding: 10px;
+      border-radius: 5px;
+      margin: 10px 0;
+      font-size: 14px;
+    }
+    .update-note {
+      background-color: #d1ecf1;
+      color: #0c5460;
+      padding: 15px;
+      border-radius: 5px;
+      margin: 20px auto;
+      max-width: 800px;
+      font-size: 14px;
+      line-height: 1.4;
     }
   </style>
 </head>
 <body>
   <h1>El Cine Privado de Pedro</h1>
 
+  <div class="update-note">
+    <strong>✅ Actualizado:</strong> Los enlaces de Google Drive han sido convertidos a streaming directo. Los videos deberían reproducirse correctamente ahora.
+  </div>
+
   <div class="video-container">
     <h2>La Liga de la Justicia (Zack Snyder)</h2>
-    <video controls poster="https://image.tmdb.org/t/p/w500/tnAuB8q5vv7Ax9UAEje5Xi4BXik.jpg">
-      <source src="videos/justice_league.mp4" type="video/mp4" />
+    <video controls poster="https://image.tmdb.org/t/p/w500/tnAuB8q5vv7Ax9UAEje5Xi4BXik.jpg" preload="metadata">
+      <source src="https://drive.google.com/uc?export=download&id=14fCzQH3O1Ib0zB2lRQ-qeJ0kI-Of9_fr" type="video/mp4" />
+      <div class="error-message">Tu navegador no soporta la reproducción de video.</div>
     </video>
   </div>
 
   <div class="video-container">
     <h2>El Señor de los Anillos: Los Anillos de Poder</h2>
-    <video controls poster="https://image.tmdb.org/t/p/w500/mYLOqiStMxDK3fYZFirgrMt8z5d.jpg">
-      <source src="videos/lotr.mp4" type="video/mp4" />
+    <video controls poster="https://image.tmdb.org/t/p/w500/mYLOqiStMxDK3fYZFirgrMt8z5d.jpg" preload="metadata">
+      <source src="https://drive.google.com/uc?export=download&id=1OpyqKTv_QngZXV_zdogzvvBFbUnsMqWB" type="video/mp4" />
+      <div class="error-message">Tu navegador no soporta la reproducción de video.</div>
     </video>
   </div>
 
   <div class="video-container">
     <h2>Gladiador (Russell Crowe)</h2>
-    <video controls poster="https://m.media-amazon.com/images/M/MV5BMDliMmNhNDEtODUyOS00MjNlLTgxODEtN2U3NzIxMGVkZTA1L2ltYWdlXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_FMjpg_UX1000_.jpg">
+    <video controls poster="https://m.media-amazon.com/images/M/MV5BMDliMmNhNDEtODUyOS00MjNlLTgxODEtN2U3NzIxMGVkZTA1L2ltYWdlXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_FMjpg_UX1000_.jpg" preload="metadata">
       <source src="https://drive.google.com/uc?export=download&id=1tAqgxaaZYDi9EM-Tc5d4DA38bUkPAXnf" type="video/mp4" />
+      <div class="error-message">Tu navegador no soporta la reproducción de video.</div>
     </video>
   </div>
+
+  <script>
+    // Script para manejar errores de carga de video
+    document.querySelectorAll('video').forEach(video => {
+      video.addEventListener('error', function(e) {
+        console.log('Error loading video:', e);
+        const errorDiv = this.parentElement.querySelector('.error-message');
+        if (errorDiv) {
+          errorDiv.style.display = 'block';
+          errorDiv.textContent = 'Error al cargar el video. Verifica el enlace de streaming.';
+        }
+      });
+      
+      video.addEventListener('loadstart', function() {
+        console.log('Starting to load video:', this.currentSrc);
+      });
+    });
+  </script>
 
 </body>
 </html>
