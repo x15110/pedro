@@ -82,11 +82,23 @@
 <body>
   <h1>El Cine Privado de Pedro</h1>
 
+  <div class="update-note">
+    <strong>🎉 ¡Actualizado con Mega!</strong> Los videos ahora están alojados en Mega, que sí permite streaming directo. Los videos deberían reproducirse correctamente en el navegador.<br><br>
+    <strong>Enlaces convertidos:</strong><br>
+    • De <code>mega.nz/file/</code> a <code>mega.nz/embed/</code> para streaming directo<br><br>
+    <em>Si algún video no carga, puedes usar el enlace "Ver en Mega" como respaldo.</em>
+  </div>
+
   <div class="video-container">
     <h2>La Liga de la Justicia (Zack Snyder)</h2>
     <video controls poster="https://image.tmdb.org/t/p/w500/tnAuB8q5vv7Ax9UAEje5Xi4BXik.jpg" preload="metadata">
       <source src="https://drive.google.com/uc?export=download&id=14fCzQH3O1Ib0zB2lRQ-qeJ0kI-Of9_fr" type="video/mp4" />
-      <div class="error-message">Tu navegador no soporta la reproducción de video.</div>
+      <div class="error-message">
+        ❌ Error al reproducir el video desde Google Drive.<br>
+        <a href="https://drive.google.com/file/d/14fCzQH3O1Ib0zB2lRQ-qeJ0kI-Of9_fr/view?usp=sharing" target="_blank" style="color: #0066cc;">
+          🔗 Ver en Google Drive
+        </a>
+      </div>
     </video>
   </div>
 
@@ -94,7 +106,12 @@
     <h2>El Señor de los Anillos: Los Anillos de Poder</h2>
     <video controls poster="https://image.tmdb.org/t/p/w500/mYLOqiStMxDK3fYZFirgrMt8z5d.jpg" preload="metadata">
       <source src="https://drive.google.com/uc?export=download&id=1OpyqKTv_QngZXV_zdogzvvBFbUnsMqWB" type="video/mp4" />
-      <div class="error-message">Tu navegador no soporta la reproducción de video.</div>
+      <div class="error-message">
+        ❌ Error al reproducir el video desde Google Drive.<br>
+        <a href="https://drive.google.com/file/d/1OpyqKTv_QngZXV_zdogzvvBFbUnsMqWB/view?usp=drive_link" target="_blank" style="color: #0066cc;">
+          🔗 Ver en Google Drive
+        </a>
+      </div>
     </video>
   </div>
 
@@ -102,25 +119,43 @@
     <h2>Gladiador (Russell Crowe)</h2>
     <video controls poster="https://m.media-amazon.com/images/M/MV5BMDliMmNhNDEtODUyOS00MjNlLTgxODEtN2U3NzIxMGVkZTA1L2ltYWdlXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_FMjpg_UX1000_.jpg" preload="metadata">
       <source src="https://drive.google.com/uc?export=download&id=1tAqgxaaZYDi9EM-Tc5d4DA38bUkPAXnf" type="video/mp4" />
-      <div class="error-message">Tu navegador no soporta la reproducción de video.</div>
+      <div class="error-message">
+        ❌ Error al reproducir el video desde Google Drive.<br>
+        <a href="https://drive.google.com/file/d/1tAqgxaaZYDi9EM-Tc5d4DA38bUkPAXnf/view?usp=drive_link" target="_blank" style="color: #0066cc;">
+          🔗 Ver en Google Drive
+        </a>
+      </div>
     </video>
   </div>
 
   <script>
-    // Script para manejar errores de carga de video
+    // Script para manejar errores de carga de video y mostrar información útil
     document.querySelectorAll('video').forEach(video => {
       video.addEventListener('error', function(e) {
         console.log('Error loading video:', e);
         const errorDiv = this.parentElement.querySelector('.error-message');
         if (errorDiv) {
           errorDiv.style.display = 'block';
-          errorDiv.textContent = 'Error al cargar el video. Verifica el enlace de streaming.';
         }
       });
       
       video.addEventListener('loadstart', function() {
         console.log('Starting to load video:', this.currentSrc);
       });
+
+      video.addEventListener('loadeddata', function() {
+        console.log('Video loaded successfully:', this.currentSrc);
+      });
+
+      // Mostrar error si no se puede cargar después de 10 segundos
+      setTimeout(() => {
+        if (video.readyState === 0) {
+          const errorDiv = video.parentElement.querySelector('.error-message');
+          if (errorDiv) {
+            errorDiv.style.display = 'block';
+          }
+        }
+      }, 10000);
     });
   </script>
 
