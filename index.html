@@ -6,10 +6,12 @@
   <title>El Cine Privado de Pedro</title>
   <style>
     body {
-      background-color: #fff;
-      color: #000;
+      background-color: #1a1a1a;
+      color: #fff;
       font-family: Arial, sans-serif;
       text-align: center;
+      margin: 0;
+      padding: 20px;
     }
     h1 {
       font-size: 3.5rem;
@@ -48,114 +50,204 @@
       50% { background-position: 100% 50%; }
       100% { background-position: 0% 50%; }
     }
-    .video-container {
-      margin: 20px auto;
-      max-width: 800px;
+    
+    .movie-container {
+      margin: 40px auto;
+      max-width: 900px;
+      background: linear-gradient(145deg, #2a2a2a, #1f1f1f);
+      border-radius: 20px;
+      padding: 30px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+      border: 1px solid #333;
     }
-    video {
-      width: 100%;
-      height: auto;
+    
+    .movie-title {
+      font-size: 2rem;
       margin-bottom: 20px;
+      color: #20c997;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    }
+    
+    .movie-poster {
+      width: 300px;
+      height: 450px;
+      object-fit: cover;
+      border-radius: 15px;
+      margin-bottom: 20px;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+      transition: transform 0.3s ease;
+    }
+    
+    .movie-poster:hover {
+      transform: scale(1.05);
+    }
+    
+    .watch-button {
+      display: inline-block;
+      background: linear-gradient(135deg, #17a2b8, #20c997);
+      color: white;
+      padding: 15px 40px;
+      text-decoration: none;
+      border-radius: 30px;
+      font-size: 1.2rem;
+      font-weight: bold;
+      transition: all 0.3s ease;
+      margin: 10px;
+      box-shadow: 0 5px 15px rgba(23, 162, 184, 0.3);
+      border: none;
+      cursor: pointer;
+    }
+    
+    .watch-button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(23, 162, 184, 0.5);
+      background: linear-gradient(135deg, #20c997, #17a2b8);
+    }
+    
+    .download-button {
+      background: linear-gradient(135deg, #6f42c1, #9b59b6);
+      box-shadow: 0 5px 15px rgba(111, 66, 193, 0.3);
+    }
+    
+    .download-button:hover {
+      background: linear-gradient(135deg, #9b59b6, #6f42c1);
+      box-shadow: 0 8px 25px rgba(111, 66, 193, 0.5);
+    }
+    
+    .movie-info {
+      background: rgba(255, 255, 255, 0.05);
       border-radius: 10px;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-    }
-    .error-message {
-      background-color: #f8d7da;
-      color: #721c24;
-      padding: 10px;
-      border-radius: 5px;
-      margin: 10px 0;
-      font-size: 14px;
-    }
-    .update-note {
-      background-color: #d1ecf1;
-      color: #0c5460;
       padding: 15px;
-      border-radius: 5px;
+      margin-top: 20px;
+      text-align: left;
+      max-width: 600px;
       margin: 20px auto;
+    }
+    
+    .movie-description {
+      font-size: 1rem;
+      line-height: 1.6;
+      color: #ccc;
+    }
+    
+    .status-indicator {
+      display: inline-block;
+      background: #28a745;
+      color: white;
+      padding: 5px 15px;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      margin-bottom: 15px;
+    }
+    
+    .mega-frame {
+      width: 100%;
+      height: 500px;
+      border: none;
+      border-radius: 15px;
+      margin-top: 20px;
+      background: #000;
+    }
+    
+    .iframe-container {
+      position: relative;
+      width: 100%;
       max-width: 800px;
-      font-size: 14px;
-      line-height: 1.4;
+      margin: 20px auto;
+      background: #000;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
     }
   </style>
 </head>
 <body>
   <h1>El Cine Privado de Pedro</h1>
 
-  <div class="update-note">
-    <strong>🎉 ¡Actualizado con Mega!</strong> Los videos ahora están alojados en Mega, que sí permite streaming directo. Los videos deberían reproducirse correctamente en el navegador.<br><br>
-    <strong>Enlaces convertidos:</strong><br>
-    • De <code>mega.nz/file/</code> a <code>mega.nz/embed/</code> para streaming directo<br><br>
-    <em>Si algún video no carga, puedes usar el enlace "Ver en Mega" como respaldo.</em>
+  <div class="movie-container">
+    <div class="status-indicator">✅ Disponible en Mega</div>
+    <h2 class="movie-title">La Liga de la Justicia (Zack Snyder Cut)</h2>
+    <img src="https://image.tmdb.org/t/p/w500/tnAuB8q5vv7Ax9UAEje5Xi4BXik.jpg" alt="Justice League" class="movie-poster">
+    
+    <div class="movie-info">
+      <p class="movie-description">
+        La versión del director de Zack Snyder de 2021 con una duración de 4 horas. 
+        Una épica aventura que reúne a los superhéroes más icónicos de DC.
+      </p>
+    </div>
+    
+    <a href="https://mega.nz/file/XdFG3DwA#fqnlKN9W4JkAVSaK--Kg6rFzJ6BiHnNWXi6pPvFgcZ8" target="_blank" class="watch-button">
+      🎬 Ver Película
+    </a>
+    
+    <div class="iframe-container">
+      <iframe src="https://mega.nz/embed/XdFG3DwA#fqnlKN9W4JkAVSaK--Kg6rFzJ6BiHnNWXi6pPvFgcZ8" class="mega-frame" allowfullscreen></iframe>
+    </div>
   </div>
 
-  <div class="video-container">
-    <h2>La Liga de la Justicia (Zack Snyder)</h2>
-    <video controls poster="https://image.tmdb.org/t/p/w500/tnAuB8q5vv7Ax9UAEje5Xi4BXik.jpg" preload="metadata">
-      <source src="https://drive.google.com/uc?export=download&id=14fCzQH3O1Ib0zB2lRQ-qeJ0kI-Of9_fr" type="video/mp4" />
-      <div class="error-message">
-        ❌ Error al reproducir el video desde Google Drive.<br>
-        <a href="https://drive.google.com/file/d/14fCzQH3O1Ib0zB2lRQ-qeJ0kI-Of9_fr/view?usp=sharing" target="_blank" style="color: #0066cc;">
-          🔗 Ver en Google Drive
-        </a>
-      </div>
-    </video>
+  <div class="movie-container">
+    <div class="status-indicator">✅ Disponible en Mega</div>
+    <h2 class="movie-title">El Señor de los Anillos: Los Anillos de Poder</h2>
+    <img src="https://image.tmdb.org/t/p/w500/mYLOqiStMxDK3fYZFirgrMt8z5d.jpg" alt="Rings of Power" class="movie-poster">
+    
+    <div class="movie-info">
+      <p class="movie-description">
+        La épica serie de Amazon Prime Video que nos transporta a la Segunda Edad de la Tierra Media, 
+        miles de años antes de los eventos de El Hobbit y El Señor de los Anillos.
+      </p>
+    </div>
+    
+    <a href="https://mega.nz/file/nBFFzazQ#bi52Ywns0iHapOfb3gbxBhz91Fu0FYD1hldtesdVZZY" target="_blank" class="watch-button">
+      🎬 Ver Serie
+    </a>
+    
+    <div class="iframe-container">
+      <iframe src="https://mega.nz/embed/nBFFzazQ#bi52Ywns0iHapOfb3gbxBhz91Fu0FYD1hldtesdVZZY" class="mega-frame" allowfullscreen></iframe>
+    </div>
   </div>
 
-  <div class="video-container">
-    <h2>El Señor de los Anillos: Los Anillos de Poder</h2>
-    <video controls poster="https://image.tmdb.org/t/p/w500/mYLOqiStMxDK3fYZFirgrMt8z5d.jpg" preload="metadata">
-      <source src="https://drive.google.com/uc?export=download&id=1OpyqKTv_QngZXV_zdogzvvBFbUnsMqWB" type="video/mp4" />
-      <div class="error-message">
-        ❌ Error al reproducir el video desde Google Drive.<br>
-        <a href="https://drive.google.com/file/d/1OpyqKTv_QngZXV_zdogzvvBFbUnsMqWB/view?usp=drive_link" target="_blank" style="color: #0066cc;">
-          🔗 Ver en Google Drive
-        </a>
-      </div>
-    </video>
-  </div>
-
-  <div class="video-container">
-    <h2>Gladiador (Russell Crowe)</h2>
-    <video controls poster="https://m.media-amazon.com/images/M/MV5BMDliMmNhNDEtODUyOS00MjNlLTgxODEtN2U3NzIxMGVkZTA1L2ltYWdlXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_FMjpg_UX1000_.jpg" preload="metadata">
-      <source src="https://drive.google.com/uc?export=download&id=1tAqgxaaZYDi9EM-Tc5d4DA38bUkPAXnf" type="video/mp4" />
-      <div class="error-message">
-        ❌ Error al reproducir el video desde Google Drive.<br>
-        <a href="https://drive.google.com/file/d/1tAqgxaaZYDi9EM-Tc5d4DA38bUkPAXnf/view?usp=drive_link" target="_blank" style="color: #0066cc;">
-          🔗 Ver en Google Drive
-        </a>
-      </div>
-    </video>
+  <div class="movie-container">
+    <div class="status-indicator">✅ Disponible en Mega</div>
+    <h2 class="movie-title">Gladiador (Russell Crowe)</h2>
+    <img src="https://m.media-amazon.com/images/M/MV5BMDliMmNhNDEtODUyOS00MjNlLTgxODEtN2U3NzIxMGVkZTA1L2ltYWdlXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_FMjpg_UX1000_.jpg" alt="Gladiator" class="movie-poster">
+    
+    <div class="movie-info">
+      <p class="movie-description">
+        El épico drama histórico de Ridley Scott protagonizado por Russell Crowe. 
+        La historia de Maximus, un general romano convertido en gladiador que busca venganza.
+      </p>
+    </div>
+    
+    <a href="https://mega.nz/file/2I1EQTjC#JgKzBZHvstswxqMQ8Tpe_Iu9sIqqVYOarKazre23I7k" target="_blank" class="watch-button">
+      🎬 Ver Película
+    </a>
+    
+    <div class="iframe-container">
+      <iframe src="https://mega.nz/embed/2I1EQTjC#JgKzBZHvstswxqMQ8Tpe_Iu9sIqqVYOarKazre23I7k" class="mega-frame" allowfullscreen></iframe>
+    </div>
   </div>
 
   <script>
-    // Script para manejar errores de carga de video y mostrar información útil
-    document.querySelectorAll('video').forEach(video => {
-      video.addEventListener('error', function(e) {
-        console.log('Error loading video:', e);
-        const errorDiv = this.parentElement.querySelector('.error-message');
-        if (errorDiv) {
-          errorDiv.style.display = 'block';
-        }
+    // Función para verificar si los iframes cargan correctamente
+    document.querySelectorAll('iframe').forEach(iframe => {
+      iframe.addEventListener('load', function() {
+        console.log('Iframe loaded:', this.src);
       });
       
-      video.addEventListener('loadstart', function() {
-        console.log('Starting to load video:', this.currentSrc);
+      iframe.addEventListener('error', function() {
+        console.log('Error loading iframe:', this.src);
+        // Si el iframe no carga, mostrar mensaje alternativo
+        const container = this.parentElement;
+        container.innerHTML = '<p style="color: #ff6b6b; text-align: center; padding: 20px;">⚠️ Error al cargar el reproductor. <a href="' + this.src.replace('/embed/', '/file/') + '" target="_blank" style="color: #17a2b8;">Abrir en Mega</a></p>';
       });
-
-      video.addEventListener('loadeddata', function() {
-        console.log('Video loaded successfully:', this.currentSrc);
+    });
+    
+    // Función para manejar clics en los botones
+    document.querySelectorAll('.watch-button').forEach(button => {
+      button.addEventListener('click', function(e) {
+        // El enlace se abrirá normalmente en nueva pestaña
+        console.log('Opening movie in Mega:', this.href);
       });
-
-      // Mostrar error si no se puede cargar después de 10 segundos
-      setTimeout(() => {
-        if (video.readyState === 0) {
-          const errorDiv = video.parentElement.querySelector('.error-message');
-          if (errorDiv) {
-            errorDiv.style.display = 'block';
-          }
-        }
-      }, 10000);
     });
   </script>
 
