@@ -82,38 +82,6 @@
       transform: scale(1.05);
     }
     
-    .watch-button {
-      display: inline-block;
-      background: linear-gradient(135deg, #17a2b8, #20c997);
-      color: white;
-      padding: 15px 40px;
-      text-decoration: none;
-      border-radius: 30px;
-      font-size: 1.2rem;
-      font-weight: bold;
-      transition: all 0.3s ease;
-      margin: 10px;
-      box-shadow: 0 5px 15px rgba(23, 162, 184, 0.3);
-      border: none;
-      cursor: pointer;
-    }
-    
-    .watch-button:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 8px 25px rgba(23, 162, 184, 0.5);
-      background: linear-gradient(135deg, #20c997, #17a2b8);
-    }
-    
-    .download-button {
-      background: linear-gradient(135deg, #6f42c1, #9b59b6);
-      box-shadow: 0 5px 15px rgba(111, 66, 193, 0.3);
-    }
-    
-    .download-button:hover {
-      background: linear-gradient(135deg, #9b59b6, #6f42c1);
-      box-shadow: 0 8px 25px rgba(111, 66, 193, 0.5);
-    }
-    
     .movie-info {
       background: rgba(255, 255, 255, 0.05);
       border-radius: 10px;
@@ -140,6 +108,25 @@
       margin-bottom: 15px;
     }
     
+    .watch-instruction {
+      background: linear-gradient(135deg, #17a2b8, #20c997);
+      color: white;
+      padding: 12px 25px;
+      border-radius: 25px;
+      font-size: 1.1rem;
+      font-weight: bold;
+      margin: 15px 0;
+      display: inline-block;
+      box-shadow: 0 5px 15px rgba(23, 162, 184, 0.3);
+      animation: pulse 2s infinite;
+    }
+    
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
+    
     .mega-frame {
       width: 100%;
       height: 500px;
@@ -158,6 +145,13 @@
       border-radius: 15px;
       overflow: hidden;
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+      border: 3px solid #20c997;
+      animation: glow 3s ease-in-out infinite alternate;
+    }
+    
+    @keyframes glow {
+      from { box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 20px rgba(32, 201, 151, 0.3); }
+      to { box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 30px rgba(32, 201, 151, 0.6); }
     }
   </style>
 </head>
@@ -165,7 +159,7 @@
   <h1>El Cine Privado de Pedro</h1>
 
   <div class="movie-container">
-    <div class="status-indicator">✅ Disponible en Mega</div>
+    <div class="status-indicator">✅ Disponible Ahora</div>
     <h2 class="movie-title">La Liga de la Justicia (Zack Snyder Cut)</h2>
     <img src="https://image.tmdb.org/t/p/w500/tnAuB8q5vv7Ax9UAEje5Xi4BXik.jpg" alt="Justice League" class="movie-poster">
     
@@ -176,9 +170,9 @@
       </p>
     </div>
     
-    <a href="https://mega.nz/file/XdFG3DwA#fqnlKN9W4JkAVSaK--Kg6rFzJ6BiHnNWXi6pPvFgcZ8" target="_blank" class="watch-button">
-      🎬 Ver Película
-    </a>
+    <div class="watch-instruction">
+      🎬 ¡Oprima aquí abajo para ver la película!
+    </div>
     
     <div class="iframe-container">
       <iframe src="https://mega.nz/embed/XdFG3DwA#fqnlKN9W4JkAVSaK--Kg6rFzJ6BiHnNWXi6pPvFgcZ8" class="mega-frame" allowfullscreen></iframe>
@@ -186,7 +180,7 @@
   </div>
 
   <div class="movie-container">
-    <div class="status-indicator">✅ Disponible en Mega</div>
+    <div class="status-indicator">✅ Disponible Ahora</div>
     <h2 class="movie-title">El Señor de los Anillos: Los Anillos de Poder</h2>
     <img src="https://image.tmdb.org/t/p/w500/mYLOqiStMxDK3fYZFirgrMt8z5d.jpg" alt="Rings of Power" class="movie-poster">
     
@@ -197,9 +191,9 @@
       </p>
     </div>
     
-    <a href="https://mega.nz/file/nBFFzazQ#bi52Ywns0iHapOfb3gbxBhz91Fu0FYD1hldtesdVZZY" target="_blank" class="watch-button">
-      🎬 Ver Serie
-    </a>
+    <div class="watch-instruction">
+      📺 ¡Dale click al rectángulo de abajo para ver la serie!
+    </div>
     
     <div class="iframe-container">
       <iframe src="https://mega.nz/embed/nBFFzazQ#bi52Ywns0iHapOfb3gbxBhz91Fu0FYD1hldtesdVZZY" class="mega-frame" allowfullscreen></iframe>
@@ -207,7 +201,7 @@
   </div>
 
   <div class="movie-container">
-    <div class="status-indicator">✅ Disponible en Mega</div>
+    <div class="status-indicator">✅ Disponible Ahora</div>
     <h2 class="movie-title">Gladiador (Russell Crowe)</h2>
     <img src="https://m.media-amazon.com/images/M/MV5BMDliMmNhNDEtODUyOS00MjNlLTgxODEtN2U3NzIxMGVkZTA1L2ltYWdlXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_FMjpg_UX1000_.jpg" alt="Gladiator" class="movie-poster">
     
@@ -218,9 +212,9 @@
       </p>
     </div>
     
-    <a href="https://mega.nz/file/2I1EQTjC#JgKzBZHvstswxqMQ8Tpe_Iu9sIqqVYOarKazre23I7k" target="_blank" class="watch-button">
-      🎬 Ver Película
-    </a>
+    <div class="watch-instruction">
+      🎭 ¡Ver aquí! Haz click en el reproductor de abajo
+    </div>
     
     <div class="iframe-container">
       <iframe src="https://mega.nz/embed/2I1EQTjC#JgKzBZHvstswxqMQ8Tpe_Iu9sIqqVYOarKazre23I7k" class="mega-frame" allowfullscreen></iframe>
@@ -238,15 +232,7 @@
         console.log('Error loading iframe:', this.src);
         // Si el iframe no carga, mostrar mensaje alternativo
         const container = this.parentElement;
-        container.innerHTML = '<p style="color: #ff6b6b; text-align: center; padding: 20px;">⚠️ Error al cargar el reproductor. <a href="' + this.src.replace('/embed/', '/file/') + '" target="_blank" style="color: #17a2b8;">Abrir en Mega</a></p>';
-      });
-    });
-    
-    // Función para manejar clics en los botones
-    document.querySelectorAll('.watch-button').forEach(button => {
-      button.addEventListener('click', function(e) {
-        // El enlace se abrirá normalmente en nueva pestaña
-        console.log('Opening movie in Mega:', this.href);
+        container.innerHTML = '<p style="color: #ff6b6b; text-align: center; padding: 20px;">⚠️ Error al cargar el reproductor. Intenta recargar la página.</p>';
       });
     });
   </script>
